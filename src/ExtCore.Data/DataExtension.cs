@@ -32,6 +32,20 @@ namespace ExtCore.Data
         return null;
       }
     }
+    public int ConfigureServicesPriorities
+    {
+      get
+      {
+        return 0;
+      }
+    }
+    public int ConfigurePriorities
+    {
+      get
+      {
+        return 0;
+      }
+    }
 
     public void SetConfigurationRoot(IConfigurationRoot configurationRoot)
     {

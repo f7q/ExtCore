@@ -14,6 +14,8 @@ namespace ExtCore.Infrastructure
   {
     string Name { get; }
     IDictionary<int, Action<IRouteBuilder>> RouteRegistrarsByPriorities { get; }
+    int ConfigureServicesPriorities { get; }
+    int ConfigurePriorities { get; }
 
     void SetConfigurationRoot(IConfigurationRoot configurationRoot);
     void ConfigureServices(IServiceCollection services);
