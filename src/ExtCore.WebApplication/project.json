@@ -1,8 +1,8 @@
 {
-  "authors": [ "Dmitry Sikorsky" ],
-  "copyright": "Copyright © 2015 Dmitry Sikorsky",
+  "authors": [ "f7Q" ],
+  "copyright": "Copyright © 2016 f7Q",
   "dependencies": {
-    "ExtCore.Infrastructure": "1.0.0-alpha9",
+    "ExtCore.Infrastructure": "1.0.0-alpha901",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
     "Microsoft.Extensions.DependencyModel": "1.0.0",
@@ -20,9 +20,5 @@
       ]
     }
   },
-  "packOptions": {
-    "iconUrl": "http://extcore.net/extcore_nuget_icon.png",
-    "projectUrl": "http://extcore.net/"
-  },
-  "version": "1.0.0-alpha9"
+  "version": "1.0.0-alpha901"
 }
