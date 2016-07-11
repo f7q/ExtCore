@@ -44,7 +44,7 @@ namespace ExtCore.WebApplication
         }
       );
 
-      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(ConfigureServicesPriority => ConfigureServicesPriority.ConfigureServicesPriorities))
+      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigureServicesPriorities))
       {
         extension.SetConfigurationRoot(this.configurationRoot);
         extension.ConfigureServices(services);
@@ -55,7 +55,7 @@ namespace ExtCore.WebApplication
     {
       applicationBuilder.UseStaticFiles();
 
-      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(ConfigurePriority => ConfigurePriority.ConfigurePriorities))
+      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigurePriorities))
         extension.Configure(applicationBuilder);
 
       applicationBuilder.UseMvc(routeBuilder =>

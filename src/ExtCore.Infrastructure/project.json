@@ -1,6 +1,6 @@
 ﻿{
-  "authors": [ "Dmitry Sikorsky" ],
-  "copyright": "Copyright © 2015 Dmitry Sikorsky",
+  "authors": [ "f7Q" ],
+  "copyright": "Copyright © 2016 f7Q",
   "dependencies": {
     "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
     "Microsoft.AspNetCore.Routing": "1.0.0",
@@ -18,9 +18,5 @@
       ]
     }
   },
-  "packOptions": {
-    "iconUrl": "http://extcore.net/extcore_nuget_icon.png",
-    "projectUrl": "http://extcore.net/"
-  },
-  "version": "1.0.0-alpha9"
+  "version": "1.0.0-alpha901"
 }
