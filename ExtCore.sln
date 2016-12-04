@@ -14,8 +14,6 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ExtCore.WebApplication", "s
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ExtCore.Infrastructure", "src\ExtCore.Infrastructure\ExtCore.Infrastructure.xproj", "{244F7C5F-B96A-4A05-AC56-747CD7406368}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ExtCore", "src\ExtCore\ExtCore.xproj", "{F1743772-277E-4397-BB61-6B18E3F4F1A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +28,6 @@ Global
 		{244F7C5F-B96A-4A05-AC56-747CD7406368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244F7C5F-B96A-4A05-AC56-747CD7406368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{244F7C5F-B96A-4A05-AC56-747CD7406368}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1743772-277E-4397-BB61-6B18E3F4F1A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1743772-277E-4397-BB61-6B18E3F4F1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1743772-277E-4397-BB61-6B18E3F4F1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1743772-277E-4397-BB61-6B18E3F4F1A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +35,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DA53EB89-DAF4-4DD6-9560-20FA0155F02D} = {0D7AEFA3-ABB0-4AF1-A4C1-F8E05C241753}
 		{244F7C5F-B96A-4A05-AC56-747CD7406368} = {0D7AEFA3-ABB0-4AF1-A4C1-F8E05C241753}
-		{F1743772-277E-4397-BB61-6B18E3F4F1A2} = {0D7AEFA3-ABB0-4AF1-A4C1-F8E05C241753}
 	EndGlobalSection
 EndGlobal
