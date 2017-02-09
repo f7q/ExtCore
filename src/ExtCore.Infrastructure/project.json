@@ -3,7 +3,7 @@
   "copyright": "Copyright © 2016 f7Q",
   "dependencies": {
     "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
-    "Microsoft.AspNetCore.Routing": "1.0.0",
+    "Microsoft.AspNetCore.Routing": "1.0.1",
     "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0",
     "NETStandard.Library": "1.6.0"
@@ -18,5 +18,5 @@
       ]
     }
   },
-  "version": "1.0.0-alpha901"
+  "version": "1.0.1-alpha901"
 }

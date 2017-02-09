@@ -3,7 +3,7 @@
   "copyright": "Copyright © 2016 f7Q",
   "dependencies": {
     "ExtCore.Infrastructure": "1.0.0-alpha901",
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
     "Microsoft.Extensions.DependencyModel": "1.0.0",
     "Microsoft.Extensions.FileProviders.Embedded": "1.0.0",
@@ -20,5 +20,5 @@
       ]
     }
   },
-  "version": "1.0.0-alpha901"
+  "version": "1.0.1-alpha901"
 }
