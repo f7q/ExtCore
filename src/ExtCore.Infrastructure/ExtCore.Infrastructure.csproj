@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Free, open source and cross-platform framework for creating modular and extendable web applications based on ASP.NET Core 1.0.</Description>
+    <Copyright>Copyright © 2016 f7Q</Copyright>
+    <VersionPrefix>1.0.1-alpha901</VersionPrefix>
+    <Authors>f7Q</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>ExtCore.Infrastructure</AssemblyName>
+    <PackageId>ExtCore.Infrastructure</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>

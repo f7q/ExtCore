@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Free, open source and cross-platform framework for creating modular and extendable web applications based on ASP.NET Core 1.0.</Description>
+    <Copyright>Copyright © 2016 f7Q</Copyright>
+    <VersionPrefix>1.0.1-alpha901</VersionPrefix>
+    <Authors>f7Q</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>ExtCore.WebApplication</AssemblyName>
+    <PackageId>ExtCore.WebApplication</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;dnxcore50;portable-net45+win8</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExtCore.Infrastructure\ExtCore.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="1.0.1" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.0.0" />
+  </ItemGroup>
+
+</Project>
