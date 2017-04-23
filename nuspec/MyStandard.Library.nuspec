@@ -16,7 +16,7 @@
     <serviceable>true</serviceable>
     <tags>learnning</tags>
     <dependencies>
-      <group>
+      <group targetFramework=".NETStandard1.0">
         <dependency id="Dapper" version="1.50.2" />
         <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
         <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
@@ -32,8 +32,148 @@
         <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
         <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
       </group>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETStandard1.2">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETStandard1.4">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETStandard1.5">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETStandard1.6">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
+      <group targetFramework=".NETCoreApp1.0">
+        <dependency id="Dapper" version="1.50.2" />
+        <dependency id="ExtCore.Infrastructure" version="1.0.1-alpha901" />
+        <dependency id="ExtCore.WebApplication" version="1.0.1-alpha901" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics" version="1.0.2" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" version="1.0.2" />
+        <dependency id="Microsoft.AspNetCore.Server.IISIntegration" version="1.0.2" />
+        <dependency id="Microsoft.AspNetCore.Server.Kestrel" version="1.0.3" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.0.2" />
+        <dependency id="Microsoft.VisualStudio.Web.BrowserLink" version="1.0.1" />
+        <dependency id="Microsoft.Extensions.Logging" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="1.0.2" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.2" />
+        <dependency id="NLog.Extensions.Logging" version="1.0.0-rtm-alpha2" />
+        <dependency id="NLog.Web.AspNetCore" version="4.2.4" />
+        <dependency id="Microsoft.EntityFrameworkCore.Sqlite" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.3" />
+        <dependency id="Microsoft.AspNetCore.Diagnostics.Elm" version="0.1.0" />
+        <dependency id="Swashbuckle" version="6.0.0-beta902" />
+        <dependency id="Swashbuckle.Swagger" version="6.0.0-beta902" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp.Scripting" version="1.3.2" />
+      </group>
     </dependencies>
     <frameworkAssemblies>
+        <frameworkAssembly assemblyName="Microsoft.NETCore.App" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Dapper" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="ExtCore.Infrastructure" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="ExtCore.WebApplication" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Diagnostics" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Server.IISIntegration" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Server.Kestrel" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.Extensions.Configuration.Json" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.VisualStudio.Web.BrowserLink" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.Extensions.Logging" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.Extensions.Logging.Console" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.Extensions.Logging.Debug" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="NLog.Extensions.Logging" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="NLog.Web.AspNetCore" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.EntityFrameworkCore.Sqlite" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Mvc" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.AspNetCore.Diagnostics.Elm" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Swashbuckle" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Swashbuckle.Swagger" targetFramework="netcoreapp1.0" />
+        <frameworkAssembly assemblyName="Microsoft.CodeAnalysis.CSharp.Scripting" targetFramework="netcoreapp1.0" />
+        
         <frameworkAssembly assemblyName="NETStandard.Library" targetFramework="netstandard1.6" />
         <frameworkAssembly assemblyName="Dapper" targetFramework="netstandard1.6" />
         <frameworkAssembly assemblyName="ExtCore.Infrastructure" targetFramework="netstandard1.6" />

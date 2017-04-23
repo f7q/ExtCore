@@ -6,7 +6,7 @@ var configuration   = Argument<string>("configuration", "Release");
 ///////////////////////////////////////////////////////////////////////////////
 var packPath1            = Directory("./src/ExtCore.Infrastructure");
 var packPath2            = Directory("./src/ExtCore.WebApplication");
-var buildArtifacts      = Directory("./artifacts/packages");
+var buildArtifacts       = Directory("./artifacts/packages");
 
 var isAppVeyor          = AppVeyor.IsRunningOnAppVeyor;
 var isWindows           = IsRunningOnWindows();
@@ -138,6 +138,26 @@ Task("Pack")
 
     DotNetCorePack(packPath1, settings);
     DotNetCorePack(packPath2, settings);
+
+    //pack
+    var nuGetPackSettings   = new NuGetPackSettings {
+                                Id                      = "MyStandard.Library",
+                                Version                 = "1.0.0-alpha1",
+                                Title                   = "MyStandard.Library",
+                                Authors                 = new[] {"f7q"},
+                                Owners                  = new[] {"f7q"},
+                                Description             = "A set of standard My APIs.",
+                                ProjectUrl              = new Uri("https://github.com/f7q/ExtCore-Sample"),
+                                IconUrl                 = new Uri("http://go.microsoft.com/fwlink/?LinkID=288859"),
+                                LicenseUrl              = new Uri("https://github.com/f7q/ExtCore-Sample/blob/dev/LICENSE.txt"),
+                                Copyright               = "(c)f7q. All rights reserved. Copyright 2017",
+                                ReleaseNotes            = new [] {"https://github.com/f7q/ExtCore-Sample/releases"},
+                                Tags                    = new [] {"learnning"},
+                                RequireLicenseAcceptance= false,
+                                OutputDirectory         = buildArtifacts
+                            };
+
+     NuGetPack("./nuspec/MyStandard.Library.nuspec", nuGetPackSettings);
 });
 
 
