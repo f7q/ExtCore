@@ -1,4 +1,5 @@
-﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
+﻿// Fork for Dmitry Sikorsky. ExtCore/ExtCore.
+// Copyright © 2016 f7Q. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
@@ -12,9 +13,18 @@ namespace ExtCore.WebApplication
 {
     public static class AssemblyManager
     {
-        public static IEnumerable<Assembly> GetAssemblies(string path)
+        /// <summary>
+        /// 追加対象アセンブリフォルダパスにあるアセンブリを取得する。
+        /// </summary>
+        /// <param name="assemblies">追加前assemblies</param>
+        /// <param name="path">追加対象アセンブリフォルダパス</param>
+        /// <returns>追加済assemblies</returns>
+        public static IEnumerable<Assembly> GetAssemblies(IEnumerable<Assembly> assemblies, string path)
         {
-            List<Assembly> assemblies = new List<Assembly>();
+            foreach (var asm in assemblies)
+            {
+                yield return asm;
+            }
 
             if (!string.IsNullOrEmpty(path) && Directory.Exists(path))
             {
@@ -23,15 +33,32 @@ namespace ExtCore.WebApplication
                     Assembly assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(extensionPath);
 
                     if (AssemblyManager.IsCandidateAssembly(assembly))
-                        assemblies.Add(assembly);
+                    {
+                        yield return assembly;
+                    }
                 }
+            }
+        }
+
+        /// <summary>
+        /// CompilationLibraryをアセンブリ一覧に追加して返却
+        /// </summary>
+        /// <param name="assemblies">追加前assemblies</param>
+        /// <returns>追加済assemblies</returns>
+        public static IEnumerable<Assembly> GetAssembliesCompilationLibrary(IEnumerable<Assembly> assemblies)
+        {
+            foreach (var assembly in assemblies)
+            {
+                yield return assembly;
             }
 
             foreach (CompilationLibrary compilationLibrary in DependencyContext.Default.CompileLibraries)
+            { 
                 if (AssemblyManager.IsCandidateCompilationLibrary(compilationLibrary))
-                    assemblies.Add(Assembly.Load(new AssemblyName(compilationLibrary.Name)));
-
-            return assemblies;
+                { 
+                    yield return Assembly.Load(new AssemblyName(compilationLibrary.Name));
+                }
+            }
         }
 
         /// <summary>

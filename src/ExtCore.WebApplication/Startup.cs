@@ -15,101 +15,103 @@ using Microsoft.Extensions.FileProviders;
 
 namespace ExtCore.WebApplication
 {
-  public class Startup
-  {
-    protected IConfigurationRoot configurationRoot;
-
-    private IHostingEnvironment hostingEnvironment;
-
-    public Startup(IHostingEnvironment hostingEnvironment)
+    public class Startup
     {
-      this.hostingEnvironment = hostingEnvironment;
-    }
+        protected IConfigurationRoot configurationRoot;
 
-    public virtual void ConfigureServices(IServiceCollection services)
-    {
-      this.DiscoverAssemblies();
-      this.hostingEnvironment.WebRootFileProvider = this.CreateCompositeFileProvider();
+        private IHostingEnvironment hostingEnvironment;
 
-      IMvcBuilder mvcBuilder = services.AddMvc();
-
-      foreach (Assembly assembly in ExtensionManager.Assemblies)
-        mvcBuilder.AddApplicationPart(assembly);
-
-      mvcBuilder.AddRazorOptions(
-        o =>
+        public Startup(IHostingEnvironment hostingEnvironment)
         {
-          foreach (Assembly assembly in ExtensionManager.Assemblies)
-            o.FileProviders.Add(new EmbeddedFileProvider(assembly, assembly.GetName().Name));
+            this.hostingEnvironment = hostingEnvironment;
         }
-      );
 
-      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigureServicesPriorities))
-      {
-        extension.SetConfigurationRoot(this.configurationRoot);
-        extension.ConfigureServices(services);
-      }
-    }
-
-    public virtual void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
-    {
-      applicationBuilder.UseStaticFiles();
-
-      foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigurePriorities))
-        extension.Configure(applicationBuilder);
-
-      applicationBuilder.UseMvc(routeBuilder =>
+        public virtual void ConfigureServices(IServiceCollection services)
         {
-          foreach (KeyValuePair<int, List<Action<IRouteBuilder>>> routeRegistrarSetByPriority in this.GetRouteRegistrarSetsByPriorities().OrderBy(routeRegistrarSetByPriority => routeRegistrarSetByPriority.Key))
-            foreach (Action<IRouteBuilder> routeRegistrar in routeRegistrarSetByPriority.Value)
-              routeRegistrar(routeBuilder);
+            this.DiscoverAssemblies();
+            this.hostingEnvironment.WebRootFileProvider = this.CreateCompositeFileProvider();
+
+            IMvcBuilder mvcBuilder = services.AddMvc();
+
+            foreach (Assembly assembly in ExtensionManager.Assemblies)
+                mvcBuilder.AddApplicationPart(assembly);
+
+            mvcBuilder.AddRazorOptions(
+              o =>
+              {
+                  foreach (Assembly assembly in ExtensionManager.Assemblies)
+                      o.FileProviders.Add(new EmbeddedFileProvider(assembly, assembly.GetName().Name));
+              }
+            );
+
+            foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigureServicesPriorities))
+            {
+                extension.SetConfigurationRoot(this.configurationRoot);
+                extension.ConfigureServices(services);
+            }
         }
-      );
-    }
 
-    private void DiscoverAssemblies()
-    {
-      string extensionsPath = this.configurationRoot["Extensions:Path"];
-
-      IEnumerable<Assembly> assemblies = AssemblyManager.GetAssemblies(
-        string.IsNullOrEmpty(extensionsPath) ? null : this.hostingEnvironment.ContentRootPath + extensionsPath
-      );
-
-      ExtensionManager.SetAssemblies(assemblies);
-    }
-
-    private IFileProvider CreateCompositeFileProvider()
-    {
-      IFileProvider[] fileProviders = new IFileProvider[] {
-        this.hostingEnvironment.WebRootFileProvider
-      };
-
-      return new CompositeFileProvider(
-        fileProviders.Concat(
-          ExtensionManager.Assemblies.Select(a => new EmbeddedFileProvider(a, a.GetName().Name))
-        )
-      );
-    }
-
-    private Dictionary<int, List<Action<IRouteBuilder>>> GetRouteRegistrarSetsByPriorities()
-    {
-      Dictionary<int, List<Action<IRouteBuilder>>> routeRegistrarSetsByPriorities = new Dictionary<int, List<Action<IRouteBuilder>>>();
-
-      foreach (IExtension extension in ExtensionManager.Extensions)
-      {
-        if (extension.RouteRegistrarsByPriorities != null)
+        public virtual void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-          foreach (KeyValuePair<int, Action<IRouteBuilder>> routeRegistrarByPriority in extension.RouteRegistrarsByPriorities)
-          {
-            if (!routeRegistrarSetsByPriorities.ContainsKey(routeRegistrarByPriority.Key))
-              routeRegistrarSetsByPriorities.Add(routeRegistrarByPriority.Key, new List<Action<IRouteBuilder>>());
+            applicationBuilder.UseStaticFiles();
 
-            routeRegistrarSetsByPriorities[routeRegistrarByPriority.Key].Add(routeRegistrarByPriority.Value);
-          }
+            foreach (IExtension extension in ExtensionManager.Extensions.OrderBy(priority => priority.ConfigurePriorities))
+                extension.Configure(applicationBuilder);
+
+            applicationBuilder.UseMvc(routeBuilder =>
+              {
+                  foreach (KeyValuePair<int, List<Action<IRouteBuilder>>> routeRegistrarSetByPriority in this.GetRouteRegistrarSetsByPriorities().OrderBy(routeRegistrarSetByPriority => routeRegistrarSetByPriority.Key))
+                      foreach (Action<IRouteBuilder> routeRegistrar in routeRegistrarSetByPriority.Value)
+                          routeRegistrar(routeBuilder);
+              }
+            );
         }
-      }
 
-      return routeRegistrarSetsByPriorities;
+        private void DiscoverAssemblies()
+        {
+            string extensionsPath = this.configurationRoot["Extensions:Path"];
+
+            IEnumerable<Assembly> assemblies = new List<Assembly>();
+            assemblies = AssemblyManager.GetAssemblies(assemblies,
+                string.IsNullOrEmpty(extensionsPath) ? null : this.hostingEnvironment.ContentRootPath + extensionsPath
+            );
+            assemblies = AssemblyManager.GetAssembliesCompilationLibrary(assemblies);
+
+            ExtensionManager.SetAssemblies(assemblies);
+        }
+
+        private IFileProvider CreateCompositeFileProvider()
+        {
+            IFileProvider[] fileProviders = new IFileProvider[] {
+                this.hostingEnvironment.WebRootFileProvider
+              };
+
+            return new CompositeFileProvider(
+              fileProviders.Concat(
+                ExtensionManager.Assemblies.Select(a => new EmbeddedFileProvider(a, a.GetName().Name))
+              )
+            );
+        }
+
+        private Dictionary<int, List<Action<IRouteBuilder>>> GetRouteRegistrarSetsByPriorities()
+        {
+            Dictionary<int, List<Action<IRouteBuilder>>> routeRegistrarSetsByPriorities = new Dictionary<int, List<Action<IRouteBuilder>>>();
+
+            foreach (IExtension extension in ExtensionManager.Extensions)
+            {
+                if (extension.RouteRegistrarsByPriorities != null)
+                {
+                    foreach (KeyValuePair<int, Action<IRouteBuilder>> routeRegistrarByPriority in extension.RouteRegistrarsByPriorities)
+                    {
+                        if (!routeRegistrarSetsByPriorities.ContainsKey(routeRegistrarByPriority.Key))
+                            routeRegistrarSetsByPriorities.Add(routeRegistrarByPriority.Key, new List<Action<IRouteBuilder>>());
+
+                        routeRegistrarSetsByPriorities[routeRegistrarByPriority.Key].Add(routeRegistrarByPriority.Value);
+                    }
+                }
+            }
+
+            return routeRegistrarSetsByPriorities;
+        }
     }
-  }
 }
