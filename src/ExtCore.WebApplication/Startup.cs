@@ -1,4 +1,5 @@
-﻿// Copyright © 2015 Dmitry Sikorsky. All rights reserved.
+﻿// Fork for Dmitry Sikorsky. ExtCore/ExtCore.
+// Copyright © 2016 f7Q. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
@@ -69,12 +70,15 @@ namespace ExtCore.WebApplication
 
         private void DiscoverAssemblies()
         {
-            string extensionsPath = this.configurationRoot["Extensions:Path"];
-
+            var section = configurationRoot.GetSection("Extensions");
             IEnumerable<Assembly> assemblies = new List<Assembly>();
-            assemblies = AssemblyManager.GetAssemblies(assemblies,
-                string.IsNullOrEmpty(extensionsPath) ? null : this.hostingEnvironment.ContentRootPath + extensionsPath
-            );
+            foreach (var child in section.GetChildren())
+            {
+                var extensionsPath = this.hostingEnvironment.ContentRootPath + child.Value;
+                assemblies = AssemblyManager.GetAssemblies(assemblies,
+                    string.IsNullOrEmpty(extensionsPath) ? null : extensionsPath
+                );
+            }
             assemblies = AssemblyManager.GetAssembliesCompilationLibrary(assemblies);
 
             ExtensionManager.SetAssemblies(assemblies);
