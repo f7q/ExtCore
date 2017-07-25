@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Free, open source and cross-platform framework for creating modular and extendable web applications based on ASP.NET Core 1.0.</Description>
     <Copyright>Copyright © 2016 f7Q</Copyright>
-    <VersionPrefix>1.0.1-alpha903</VersionPrefix>
+    <VersionPrefix>1.0.1-alpha904</VersionPrefix>
     <Authors>f7Q</Authors>
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>ExtCore.WebApplication</AssemblyName>

@@ -75,6 +75,14 @@ namespace ExtCore.WebApplication
             foreach (var child in section.GetChildren())
             {
                 var extensionsPath = this.hostingEnvironment.ContentRootPath + child.Value;
+                if (System.IO.Path.DirectorySeparatorChar.Equals("/"))
+                {
+                    extensionsPath = extensionsPath.Replace("\\", "/"); // Windows
+                }
+                else
+                {
+                    extensionsPath = extensionsPath.Replace("/", "\\"); // Linux
+                }
                 assemblies = AssemblyManager.GetAssemblies(assemblies,
                     string.IsNullOrEmpty(extensionsPath) ? null : extensionsPath
                 );
