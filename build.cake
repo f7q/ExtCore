@@ -1,5 +1,5 @@
 var target          = Argument("target", "Default");
-var configuration   = Argument<string>("configuration", "Release");
+var configuration   = Argument<string>("configuration", "Debug");
 
 ///////////////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
@@ -128,6 +128,12 @@ Task("Pack")
     {
         Configuration = configuration,
         OutputDirectory = buildArtifacts,
+		
+		// 外部コードのステップインを許可する
+		// ［ツール］−［オプション］−［デバッグ］−［全般］ノードにて、『マイコードのみを有効にする』のチェックを外して無効にする。
+		// symbols.nupkgにpdb,srcからデバッグが可能になる。
+		IncludeSource = true,
+		IncludeSymbols = true,
     };
 
     // add build suffix for CI builds
