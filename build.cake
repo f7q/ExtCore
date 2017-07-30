@@ -148,7 +148,7 @@ Task("Pack")
     //pack
     var nuGetPackSettings   = new NuGetPackSettings {
                                 Id                      = "MyStandard.Library",
-                                Version                 = "1.0.0-alpha1",
+                                Version                 = "1.0.0-alpha2",
                                 Title                   = "MyStandard.Library",
                                 Authors                 = new[] {"f7q"},
                                 Owners                  = new[] {"f7q"},
