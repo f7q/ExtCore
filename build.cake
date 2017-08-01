@@ -1,5 +1,5 @@
 var target          = Argument("target", "Default");
-var configuration   = Argument<string>("configuration", "Release");
+var configuration   = Argument<string>("configuration", "Debug");
 
 ///////////////////////////////////////////////////////////////////////////////
 // GLOBAL VARIABLES
@@ -128,6 +128,12 @@ Task("Pack")
     {
         Configuration = configuration,
         OutputDirectory = buildArtifacts,
+		
+        // 外部コードのステップインを許可する
+        // ［ツール］−［オプション］−［デバッグ］−［全般］ノードにて、『マイコードのみを有効にする』のチェックを外して無効にする。
+        // symbols.nupkgにpdb,srcからデバッグが可能になる。
+        IncludeSource = true,
+        IncludeSymbols = true,
     };
 
     // add build suffix for CI builds
@@ -142,7 +148,7 @@ Task("Pack")
     //pack
     var nuGetPackSettings   = new NuGetPackSettings {
                                 Id                      = "MyStandard.Library",
-                                Version                 = "1.0.0-alpha1",
+                                Version                 = "1.0.0-alpha2",
                                 Title                   = "MyStandard.Library",
                                 Authors                 = new[] {"f7q"},
                                 Owners                  = new[] {"f7q"},
