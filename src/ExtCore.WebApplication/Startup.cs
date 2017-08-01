@@ -79,11 +79,11 @@ namespace ExtCore.WebApplication
 
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    extensionsPath = extensionsPath.Replace("/", "\\");
+                    extensionsPath = extensionsPath.Replace("/", "\\"); // Windows
                 }
                 else
                 {
-                    extensionsPath = extensionsPath.Replace("\\", "/");
+                    extensionsPath = extensionsPath.Replace("\\", "/"); // Linux
                 }
 
                 assemblies = AssemblyManager.GetAssemblies(assemblies,
