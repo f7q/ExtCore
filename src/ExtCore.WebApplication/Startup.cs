@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using ExtCore.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -75,6 +76,16 @@ namespace ExtCore.WebApplication
             foreach (var child in section.GetChildren())
             {
                 var extensionsPath = this.hostingEnvironment.ContentRootPath + child.Value;
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    extensionsPath = extensionsPath.Replace("/", "\\");
+                }
+                else
+                {
+                    extensionsPath = extensionsPath.Replace("\\", "/");
+                }
+
                 assemblies = AssemblyManager.GetAssemblies(assemblies,
                     string.IsNullOrEmpty(extensionsPath) ? null : extensionsPath
                 );
